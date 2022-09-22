@@ -8,6 +8,7 @@ import {
   incrementAsync,
   incrementIfOdd,
   selectCount,
+  CUSTOM_ACTION,
 } from './counterSlice';
 import styles from './Counter.module.css';
 
@@ -39,6 +40,7 @@ export function Counter() {
       </div>
       <div className={styles.row}>
         <input
+          data-testid="incrementGap"
           className={styles.textbox}
           aria-label="Set increment amount"
           value={incrementAmount}
@@ -61,6 +63,13 @@ export function Counter() {
           onClick={() => dispatch(incrementIfOdd(incrementValue))}
         >
           Add If Odd
+        </button>
+
+        <button
+          className={styles.button}
+          onClick={() => {dispatch(CUSTOM_ACTION())}}
+        >
+          CUSTOM
         </button>
       </div>
     </div>
